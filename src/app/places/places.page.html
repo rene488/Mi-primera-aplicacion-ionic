@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title class="ion-text-center">Places</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToHome()" color="warning">
+       <ion-icon name="globe"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let place of places" [routerLink]="['/places', place.id]">
+      <ion-avatar slot="start">
+        <ion-img [src]="place.imageURL"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        {{place.title}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+     <ion-fab-button color="warning" (click)="addNewPlace()">
+       <ion-icon name="add"></ion-icon>
+     </ion-fab-button>
+   </ion-fab>
+
+</ion-content>
