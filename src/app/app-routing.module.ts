@@ -1,32 +1,25 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from "./guards/auth.guard";
+import { NoAuthGuard } from "./guards/no-auth.guard";
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
-    redirectTo: 'places',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
-    path: 'places',
-    children: [
-      {
-        path: "",
-        loadChildren: () => import('./places/places.module').then( m => m.PlacesPageModule)
-      },
-      {
-        path: ":placeId",
-        loadChildren: () => import('./places/place-detail/place-detail.module').then(m=>m.PlaceDetailPageModule)
-      }
-    ]
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule), canActivate:[NoAuthGuard]
   },
   {
-    path: 'new-place',
-    loadChildren: () => import('./places/place-add/place-add.module').then(m=> m.PlaceAddPageModule)
+    path: 'new-user',
+    loadChildren: () => import('./pages/new-user/new-user.module').then( m => m.NewUserPageModule)
+  },
+  {
+    path: 'app',
+    loadChildren: () => import('./pages/app/app.module').then( m => m.AppPageModule), canActivate:[AuthGuard]
   },
 ];
 

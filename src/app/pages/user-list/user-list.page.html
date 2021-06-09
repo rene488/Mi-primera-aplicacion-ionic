@@ -1,0 +1,20 @@
+<app-header-back title="Usuarios"></app-header-back>
+
+<ion-content>
+
+  <ion-item *ngFor="let u of users">
+
+    <ion-icon *ngIf="!u.img" style="font-size: 40px;"   slot="start" name="person-circle-outline"></ion-icon>
+    
+        <ion-avatar *ngIf="u.img" slot="start">
+          <img src="{{u.img}}" />
+        </ion-avatar>
+
+    <ion-label>{{u.username}}
+      <div style="font-size: 13px;color: gray;">{{u.email}}</div>
+    </ion-label>
+   </ion-item>
+  
+
+
+</ion-content>

@@ -1,0 +1,28 @@
+<app-header-back title="Productos"></app-header-back>
+<ion-content>
+
+
+
+  <ion-item *ngFor="let p of productos">
+        <ion-avatar slot="start">
+          <img src="{{p.img}}" />
+        </ion-avatar>
+    <ion-label>{{p.nombre}}
+      <div style="font-size: 13px;color: gray;">{{p.precio | currency: 'USD'}}</div>
+    </ion-label>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="Options(p)">
+        <ion-icon color="warning" name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+   </ion-item>
+  
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button routerLink="/app/product-add">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>

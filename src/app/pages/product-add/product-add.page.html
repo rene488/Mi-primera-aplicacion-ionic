@@ -1,0 +1,39 @@
+<app-header-back title="Nuevo Producto"></app-header-back>
+<ion-content>
+<center style="padding-top: 50px;">
+<ion-card style="border-radius: 20px;font-size: 13px;padding: 20px; ">
+
+  <ion-avatar *ngIf="producto.img">
+    <img [src]="producto.img" />
+  </ion-avatar>
+
+  <ion-item>
+    <ion-label position="floating">Imagen</ion-label>
+    <ion-input type="text" [(ngModel)]="producto.img" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="producto.nombre" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Precio</ion-label>
+    <ion-input type="text" [(ngModel)]="producto.precio" required></ion-input>
+  </ion-item>
+
+
+  <div style="padding-top: 20px;">
+    <ion-button (click)="agregarProducto()" shape="round">
+     Guardar
+    </ion-button>
+  </div>
+  
+
+</ion-card>
+
+</center>
+
+
+
+</ion-content>

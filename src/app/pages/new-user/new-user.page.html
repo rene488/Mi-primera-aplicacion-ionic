@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+<ion-buttons slot="start">
+  <ion-back-button defaultHref="/login"></ion-back-button>
+</ion-buttons>
+
+    <ion-title>Nuevo Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<center style="padding-top: 50px;">
+<ion-card style="border-radius: 20px;font-size: 13px;padding: 20px; ">
+
+  <ion-item>
+    <ion-label position="floating">Nuevo Usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="user.username" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" [(ngModel)]="user.email" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password" required></ion-input>
+  </ion-item>
+
+  <div style="padding-top: 20px;">
+    <ion-button (click)="guardarDatos()" shape="round">
+      Guardar
+    </ion-button>
+     
+    
+  </div>
+</ion-card>
+
+</center>
+
+
+
+</ion-content>
